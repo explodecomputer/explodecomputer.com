@@ -1,6 +1,6 @@
-<?
+<?php
 
-class enumerate_values
+class enum_values
 {
 	public $values;
 	public function __construct($table, $column)

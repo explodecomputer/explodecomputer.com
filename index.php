@@ -13,7 +13,7 @@ require_once("func.php");
 <body>
 <div class=bar>
 	<div class=title>
-	<a href="http://www.explodecomputer.com/index.php">explodecomputer&#183com</a> by gibran hemani
+	<a href="index.php">explodecomputer&#183com</a> by gibran hemani
 	</div>
 	
 	<div class=scroll>
@@ -26,22 +26,6 @@ require_once("func.php");
 
 
 <?
-class enum_values
-{
-	public $values;
-	public function __construct($table, $column)
-	{
-		$sql = "SHOW COLUMNS FROM $table LIKE '$column'";
-		if ($result = mysql_query($sql))
-		{
-			$enum = mysql_fetch_object($result);
-			preg_match_all("/'([\w ]*)'/", $enum->Type, $values);
-			$this->values = $values[1];
-		} else {
-			die("Unable to fetch enum values: ".mysql_error());	
-		}
-	}
-}
 $cats = new enum_values('webentry','category'); $cats = $cats->values;
 $tags = new enum_values('webentry','tags'); $tags = $tags->values;
 

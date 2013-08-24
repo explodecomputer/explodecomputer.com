@@ -1,5 +1,5 @@
 <?php
-$con = mysql_connect("explodecomputer.com.mysql","explodecomputer","odeadfsws123qwe");
+$con = mysql_connect("gibranhemani.com","root","Thereisnospoon1");
 if (!$con)
 {
 	die('Could not connect to server: ' . mysql_error());

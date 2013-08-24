@@ -1,7 +1,7 @@
-steps to moving the website from one place to a vps
+# Steps to moving the website from one place to a vps
 
 
-First setup CentOS 6.4
+## First setup CentOS 6.4
 
 1. create a centos 6.4 droplet
 
@@ -11,15 +11,17 @@ First setup CentOS 6.4
 
 4. install git (sudo yum install git)
 
-5. follow these instructions to create a new user (except the last stuff about making it more secure)
-https://www.digitalocean.com/community/articles/initial-server-setup-with-centos-6
-
-6. follow these instructions to install lamp (php, mysql, apache)
-https://www.digitalocean.com/community/articles/how-to-install-linux-apache-mysql-php-lamp-stack-on-centos-6
+5. follow these [instructions](https://www.digitalocean.com/community/articles/initial-server-setup-with-centos-6) to create a new user (except the last stuff about making it more secure)
 
 
+6. follow these [instructions](https://www.digitalocean.com/community/articles/how-to-install-linux-apache-mysql-php-lamp-stack-on-centos-6) to install lamp (php, mysql, apache)
 
-Next get the website into the new server
+
+7. Find where the php.ini file is (php --ini) and make sure that short_open_tag = On is set (no semi-colon at the start)
+
+
+
+## Next get the website into the new server
 
 1. clone the repo
 
@@ -32,7 +34,7 @@ Next get the website into the new server
 5. that's it?
 
 
-Redirect domain to new host
+## Redirect domain to new host
 
 1. Make sure it is registered!
 
@@ -40,3 +42,9 @@ Redirect domain to new host
 https://www.digitalocean.com/community/articles/how-to-set-up-a-host-name-with-digitalocean
 
 3. wait.
+
+
+## Allow multiple domains on one IP address using virtual hosting
+
+1. Follow this [guide](https://www.digitalocean.com/community/articles/how-to-set-up-apache-virtual-hosts-on-centos-6), it seems to work
+

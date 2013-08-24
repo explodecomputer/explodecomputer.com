@@ -64,11 +64,10 @@ if(isset($_POST['chosentags']))
 	}
 	$showcats = implode("",$showcats);
 
-	$loc = "Location: http://www.explodecomputer.com/index.php?tag=".$showtags."&cat=".$showcats;
+	$loc = "Location: index.php?tag=".$showtags."&cat=".$showcats;
 	header($loc);
 	exit;
 } else {
-	header("Location: http://www.explodecomputer.com/index.php");
+	header("Location: index.php");
 	exit;
 }
-
