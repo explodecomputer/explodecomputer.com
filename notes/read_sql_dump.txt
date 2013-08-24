@@ -1,0 +1,17 @@
+
+-- start mysql
+
+mysql -u root -p --max_allowed_packet=500MB
+
+
+-- create a new database
+CREATE database test2;
+SHOW databases;
+
+
+-- import the .sql dump to the new database
+USE explodecomputer;
+SOURCE explodecomputer.sql;
+
+
+-- i think that is all. there might be more to do

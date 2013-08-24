@@ -1,0 +1,42 @@
+steps to moving the website from one place to a vps
+
+
+First setup CentOS 6.4
+
+1. create a centos 6.4 droplet
+
+2. login via ssh
+
+3. add public key to authorized_keys, setup bash etc
+
+4. install git (sudo yum install git)
+
+5. follow these instructions to create a new user (except the last stuff about making it more secure)
+https://www.digitalocean.com/community/articles/initial-server-setup-with-centos-6
+
+6. follow these instructions to install lamp (php, mysql, apache)
+https://www.digitalocean.com/community/articles/how-to-install-linux-apache-mysql-php-lamp-stack-on-centos-6
+
+
+
+Next get the website into the new server
+
+1. clone the repo
+
+2. import any databases that are required. see read_sql_dump.txt
+
+3. move everything over to /var/www/html/
+
+4. make sure httpd and mysql services are running
+
+5. that's it?
+
+
+Redirect domain to new host
+
+1. Make sure it is registered!
+
+2. go to the registrar website (e.g. one.com or cheapname.com) and follow these instructions
+https://www.digitalocean.com/community/articles/how-to-set-up-a-host-name-with-digitalocean
+
+3. wait.
