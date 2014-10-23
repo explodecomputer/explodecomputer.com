@@ -1,17 +1,22 @@
-
 -- start mysql
 
 mysql -u root -p --max_allowed_packet=500MB
 
 
 -- create a new database
-CREATE database test2;
+
+CREATE database explodecomputer;
 SHOW databases;
 
 
 -- import the .sql dump to the new database
+
 USE explodecomputer;
 SOURCE explodecomputer.sql;
+CREATE USER 'gib'@'explodecomputer.com' IDENTIFIED BY 'Odeadfsws123qwe';
+GRANT ALL PRIVILEGES ON *.* TO 'gib'@'explodecomputer.com' WITH GRANT OPTION;
+CREATE USER 'gib'@'%' IDENTIFIED BY 'Odeadfsws123qwe';
+GRANT ALL PRIVILEGES ON *.* TO 'gib'@'%' WITH GRANT OPTION;
 
 
 -- i think that is all. there might be more to do
