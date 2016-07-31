@@ -1,5 +1,5 @@
 <?php
-$con = mysql_connect("explodecomputer.com","gib","Odeadfsws123qwe");
+$con = mysql_connect("localhost","gib","Odeadfsws123qwe");
 if (!$con)
 {
 	die('Could not connect to server: ' . mysql_error());
