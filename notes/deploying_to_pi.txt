@@ -1,0 +1,57 @@
+I want to 
+
+- Run the site on raspberry pi
+- Along with other sites
+- In a container
+- Where the container builds everything and imports the original backup files
+
+Using the docker lamp image here https://github.com/joaquindlz/rpi-docker-lamp. My forked repository does:
+
+- Clones the site from https://github.com/explodecomputer/explodecomputer.com into the /app directory
+- Modifies php.ini to allow short tags
+- Downloads the backup database from https://www.dropbox.com/s/lknzahljfqo2q44/explodecomputer.sql?dl=1
+- Uploads the backup database to the mysql database
+- Creates user for the site
+
+## Steps:
+
+1. Clone the repository that will deploy https://github.com/explodecomputer/rpi-docker-lamp
+
+    ```
+    git clone git@github.com:explodecomputer/rpi-docker-lamp.git
+    cd rpi-docker-lamp
+    ```
+
+2. Build the repository
+
+    ```
+    docker build -t rpi-docker-lamp:explodecomputer.com .
+    ```
+
+3. Run
+
+    ```
+    docker run --name=explodecomputer.com -d -p 3001:80 rpi-docker-lamp:explodecomputer.com
+    ```
+
+4. Point the virtual host to this port by adding the following to `/etc/apache2/sites-available/000-default.conf`
+
+    ```
+    <VirtualHost *:80>
+        ServerName explodecomputer.com
+        ServerAlias www.explodecomputer.com
+        ProxyPreserveHost on
+        ProxyPass / http://127.0.0.1:3001/
+
+        ErrorLog ${APACHE_LOG_DIR}/error.log
+        CustomLog ${APACHE_LOG_DIR}/access.log combined
+
+    </VirtualHost>
+    ```
+
+    Then restart apache
+
+    ```
+    sudo service apache2 restart
+    ```
+
